@@ -92,13 +92,13 @@ function a(b, c) {
 일관된 코딩 스타일을 적용합니다.
 
 <a name="4-1"></a>
-1. 예측(검색)이 가능한 이름
-#### bad ####
+### 1. 예측(검색)이 가능한 이름
+#### -bad ####
 아래 코드를 처음 접하는 사람은 86400이 무엇을 의미하지는 바로 이해하기가 쉽지 않습니다.
 ```javascript
 returnData('hello', 86400)
 ```
-#### good ####
+#### -good ####
 변수명에 검색(예측)이 가능한 이름으로 86400이라는 값을 넣어서 사용합니다. 변수명으로 하루의 총 시간 중 초를 의미한다는 것을 예측할 수 있습니다.
 ```javascript
 const TOTAL_DAY_SECOND = 86400;
@@ -106,15 +106,15 @@ returnData('hello', TOTAL_DAY_SECOND)
 ```
 
 <a name="4-2"></a>
-2. 함수명은 반드시 기능을 명시
-#### bad ####
+### 2. 함수명은 반드시 기능을 명시
+#### -bad ####
 아래의 함수는 정확히 무엇을 의미하는지 알 수 없습니다.
 ```javascript
 function userData () {
  ...
 }
 ```
-#### good ####
+#### -good ####
 함수에 get, delete, load와 같은 기능을 명시하면 함수명만 보고도 기능을 예측할 수 있습니다.
 ```javascript
 function getUserData () {
@@ -123,8 +123,8 @@ function getUserData () {
 ```
 
 <a name="4-3"></a>
-3. 함수는 하나의 동작만 구현되게 작성
-#### bad ####
+### 3. 함수는 하나의 동작만 구현되게 작성
+#### -bad ####
 하나의 함수에서 매개변수에 따라 기능을 구분해서 코드를 작성하게 되면 코드의 가독성도 좋지 않을 뿐 아니라 기능의 재사용성 측면에서도 좋지 않습니다.
 ```javascript
 function detailView (param) {
@@ -137,7 +137,7 @@ function detailView (param) {
 }
 detailView(true)
 ```
-#### good ####
+#### -good ####
 함수의 코드가 기능으로 나뉘어서 분리되어 있으면 해당 코드를 상황에 맞게 호출해서 사용할 수 있으므로 재사용성이 높아지고 가독성도 좋아지게 됩니다.
 ```javascript
 function showDetailView () {
@@ -150,8 +150,8 @@ function hideDetailView () {
 ```
 
 <a name="4-4"></a>
-4. 함수의 인수는 명확하게 값을 전달
-#### bad ####
+### 4. 함수의 인수는 명확하게 값을 전달
+#### -bad ####
 예시에서는 함수와 전달하는 매개변수가 바로 붙어있기 때문에 큰 불편함을 못 느낄 수도 있지만 코드의 길이가 길어지고 해당 함수와 매개 변수만 보게 되면 각각의 매개변수가 무엇을 의미하는지 이해하기가 쉽지 않습니다.
 ```javascript
 function readUserData (userName, age, email, job, userId) {
@@ -159,7 +159,7 @@ function readUserData (userName, age, email, job, userId) {
 }
 ```
 readUserData('홍길동', 24, 'test@gmail.com', 'programmer', 'badCode')
-#### good ####
+#### -good ####
 함수의 역할을 파악하기 쉽고 전달하는 매개변수가 각각 무엇을 의미하는지 가독성과 이해가 용이합니다.
 ```javascript
 function readUserData ({userName, age, email, job, userId}) {
@@ -175,16 +175,16 @@ readUserData({
 ```
 
 <a name="4-5"></a>
-5. 변수명은 명확한 이름을 사용
+### 5. 변수명은 명확한 이름을 사용
 코드를 작성하는 자신에게는 명확하고 분명한 의미라고 해서 그 의미가 다른 사람 모두에게도 분명한 것은 아닙니다.
-#### bad ####
+#### -bad ####
 ```javascript
 userData.forEach((u, i) => {
   getUserId(u);
   addCount(i);
 });
 ```
-#### good ####
+#### -good ####
 ```javascript
 userData.forEach((user, currentIndex) => {
   getUserId(user);
@@ -193,7 +193,7 @@ userData.forEach((user, currentIndex) => {
 ```
 
 <a name="4-6"></a>
-6. 일관된 코딩 스타일을 적용
+### 6. 일관된 코딩 스타일을 적용
 협업에서 가독성을 보장하는 방법 중 하나는  일관성 있는 코드를 작성하는 것입니다.
 코드의 규칙을 정하고 정의된 규칙(그라운드 룰:Ground Rule)은 코드를 작성하는 모두 준수하면 작성합니다.
 코드에 일관성이 지켜진다면 예측이 가능하다. 예측이 가능하다는 것은 어느 곳에 어떤 코드가 위치하는지 예상할 수 있다는 것이다. 프로젝트 팀원 간의 그라운드 룰(Ground Rule)이 필요한 이유이다.
@@ -202,13 +202,13 @@ userData.forEach((user, currentIndex) => {
 - 디렉터리 구조 정의(Directory) : 디렉터리 구조는 프로젝트의 규모나 성격에 따라서 논의하고 정의합니다. 일반적으로 아래 2가지 방법을 가장 많이 사용합니다.
   - 역할에 따라 디렉터리를 분리
   - 페이지(도메인 영역)에 따라 디렉터리를 분리
-#### bad ####
+#### -bad ####
 ```javascript
 function eventbuttonclick() {
    ...
 }
 ```
-#### good ####
+#### -good ####
 ```javascript
 // camelCase
 // action: get, delete, post, read....
